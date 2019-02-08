@@ -1,18 +1,18 @@
 $(document).ready(function () {
 
     // VARIABLES
-    var calc = $('.calculator');
-    var calcDisplay = calc.find('.calc__display');
-    var calcKeys = calc.find('.calc__key');
-    var calcButton = calc.find('.calc__button');
-    var calcClear = calc.find('.calc__clear');
-    var calcEqual = calc.find('.calc__key--equal');
-    var calcPower = calc.find('.calc__power');
-    var calcSpace = calc.find('.calc__backspace');
+    let calc = $('.calculator');
+    let calcDisplay = calc.find('.calc__display');
+    let calcKeys = calc.find('.calc__key');
+    let calcButton = calc.find('.calc__button');
+    let calcClear = calc.find('.calc__clear');
+    let calcEqual = calc.find('.calc__key--equal');
+    let calcPower = calc.find('.calc__power');
+    let calcSpace = calc.find('.calc__backspace');
 
     // INIT CALC KEYS
     calcKeys.each(function () {
-        var current = $(this).attr('value');
+        let current = $(this).attr('value');
         $(this).text(current);
     });
 
@@ -31,13 +31,13 @@ $(document).ready(function () {
         calcDisplay.val( eval( calcDisplay.val() ) );
     });
 
-    // POWER BUTTON
+    // POWER BUTTON (^2)
     calcPower.on('click', function () {
-        calcDisplay.val( Math.pow( calcDisplay.val(), 3 ) );
+        calcDisplay.val( Math.pow( calcDisplay.val(), 2 ) );
     });
 
     // BACKSPACE BUTTON
-    calcSpace.on('click', function () { // http://www.w3schools.com/jsref/jsref_substring.asp
+    calcSpace.on('click', function () {
         calcDisplay.val( calcDisplay.val().substring(0, calcDisplay.val().length-1) );
     });
 
